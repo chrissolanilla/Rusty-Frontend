@@ -4,7 +4,7 @@
 		<img src="crab-rave.gif" alt="crab rave gif" class="gif" >
 	</div>
 	<h2>Lets test how rusty you are</h2>
-	<button>Join now</button>
+	<a href="/game" ><button >Join now</button></a>
 </div>
 
 <style lang="scss">
