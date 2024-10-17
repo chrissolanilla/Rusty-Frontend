@@ -8,21 +8,17 @@
 </div>
 
 <style lang="scss">
-	:global(body) {
-		margin: 0;
-				background-image: url('rustyReef.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
+	:gloabl(body){
+		margin:0;
+		background: blue;
+	}
 
-		}
 	* {
 		text-align: center;
 		color: red;
 	}
+
 	.container {
-		background-image: url('rustyReef.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
