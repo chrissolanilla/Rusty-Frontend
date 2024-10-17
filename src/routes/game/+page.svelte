@@ -12,6 +12,7 @@
     let scoreScreenIsShowing = false;
     let currentQuestion = '';
     let answers = ["Paris", "London", "Berlin", "Rome"]; // Example answers for a question
+	let questionNumber = 0;
 
     function checkPlayersArray() {
         console.log(players);
@@ -34,6 +35,9 @@
             if (data.players) {
                 players = data.players; // Update players with the list from the server
             }
+			if(data.game_started !== undefined) {
+				gameStarted = data.game_started;
+			}
         });
 
         socket.addEventListener('close', () => {
@@ -51,6 +55,12 @@
 		socket.send(JSON.stringify({ action_type: 'join_game', username }));
         hasJoined = true;
         fetchPlayers();
+    }
+
+	function startGame() {
+		if(username.trim() === 'chris') {
+			socket.send(JSON.stringify({ action_type: 'start_game' }));
+		}
     }
 </script>
 
@@ -72,6 +82,10 @@
             {/each}
         </ul>
     </div>
+
+	{#if username =="chris"}
+		<button on:click={startGame}>Start Game</button>
+	{/if}
 </div>
 {:else if gameStarted && scoreScreenIsShowing}
     <Scorescreen players={players} />
